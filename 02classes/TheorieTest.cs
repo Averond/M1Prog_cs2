@@ -1,9 +1,8 @@
 ﻿namespace _02classes;
 
-class Program
+internal class TheorieTest
 {
-    static void Main(string[] args)
-    {
-        Console.WriteLine("Hello, World!");
-    }
+    internal int aantaalFouten;
+    internal bool gehaald;
+    internal DateTime afnameDatum;
 }

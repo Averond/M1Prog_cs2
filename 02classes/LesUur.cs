@@ -1,9 +1,11 @@
 ﻿namespace _02classes;
 
-class Program
+internal class LesUur
 {
-    static void Main(string[] args)
-    {
-        Console.WriteLine("Hello, World!");
-    }
+    internal string Naam;
+    internal int leeftijd;
+    internal LesPakket lesPakket;
+    internal RijLeraar leraar;
+    internal TheorieTest theorieTest;
+    internal RijTest rijTest;
 }

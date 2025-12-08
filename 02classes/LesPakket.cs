@@ -1,9 +1,10 @@
 ﻿namespace _02classes;
 
-class Program
+internal class LesPakket
 {
-    static void Main(string[] args)
-    {
-        Console.WriteLine("Hello, World!");
-    }
+    internal int urenGekocht;
+    internal int urenVerbruikt;
+    internal int examenPogingen;
+    internal bool automaat;
+
 }

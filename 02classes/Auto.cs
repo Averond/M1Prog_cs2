@@ -1,9 +1,9 @@
 ﻿namespace _02classes;
 
-class Program
+internal class Auto
 {
-    static void Main(string[] args)
-    {
-        Console.WriteLine("Hello, World!");
-    }
+    internal bool automaat;
+    internal string merk;
+    internal string kenteken;
+    internal int kilometerstand;
 }
