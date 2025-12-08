@@ -19,21 +19,17 @@ namespace _01functions
         {
             Program program = new Program();
             program.Run();
-            Console.WriteLine(program.GetVraag(0));
-            Console.WriteLine(program.GetRandomVraag());
-            program.Vraag1();
-            program.Vraag2();
-            program.Vraag3();
-            program.Vraag4();
-            program.Vraag5();
-            program.Vraag6();
-            program.Vraag7();
         }
 
         void Run()
         {
             Console.WriteLine("Run methode werkt!");
             Console.WriteLine();
+
+            AskRandomQuestion();
+            AskRandomQuestion();
+            AskRandomQuestion();
+            AskRandomQuestion();
         }
 
         internal string GetVraag(int vraagindex)
@@ -46,6 +42,16 @@ namespace _01functions
             Random rnd = new Random();
             int index = rnd.Next(vragen.Length);
             return vragen[index];
+        }
+
+        internal void AskRandomQuestion()
+        {
+            string vraag = GetRandomVraag();
+            Console.WriteLine(vraag);
+
+            string antwoord = Console.ReadLine();
+            Console.WriteLine("Jouw antwoord: " + antwoord);
+            Console.WriteLine();
         }
 
         internal void Vraag1()
