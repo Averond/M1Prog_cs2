@@ -1,4 +1,6 @@
-﻿namespace _03constructors
+﻿using System;
+
+namespace _03constructors
 {
     class QuizVraag
     {
@@ -14,7 +16,9 @@
 
     class QuizVraagAntwoord
     {
+        internal QuizVraag vraag;
         internal string gegevenAntwoord;
+        internal bool goed;
     }
 
     class Quiz
@@ -38,6 +42,43 @@
             QuizVraag nieuweVraag = new QuizVraag(vraagText, antwoord);
             VoegVraagToeOpIndex(index, nieuweVraag);
         }
+
+        internal void StelVraag(int index)
+        {
+            QuizVraag vraag = vragen[index];
+            QuizVraagAntwoord antwoord = new QuizVraagAntwoord();
+            antwoord.vraag = vraag;
+
+            Console.WriteLine(vraag.vraag);
+            string input = Console.ReadLine();
+            antwoord.gegevenAntwoord = input;
+
+            if (input == vraag.antwoord)
+            {
+                antwoord.goed = true;
+                Console.WriteLine("Goed");
+            }
+            else
+            {
+                antwoord.goed = false;
+                Console.WriteLine("Fout");
+            }
+
+            ingevuldeAntwoorden[index] = antwoord;
+        }
+
+        internal int Score()
+        {
+            int score = 0;
+            for (int i = 0; i < ingevuldeAntwoorden.Length; i++)
+            {
+                if (ingevuldeAntwoorden[i] != null && ingevuldeAntwoorden[i].goed)
+                {
+                    score++;
+                }
+            }
+            return score;
+        }
     }
 
     class Program
@@ -56,6 +97,14 @@
             quiz.VoegVraagToeOpIndex(7, new QuizVraag("Hoe heet de grootste oceaan?", "Stille Oceaan"));
             quiz.VoegVraagToeOpIndex(8, new QuizVraag("Hoeveel seconden zitten er in een minuut?", "60"));
             quiz.VoegVraagToeOpIndex(9, new QuizVraag("Wat is de hoofdstad van België?", "Brussel"));
+
+            for (int i = 0; i < 10; i++)
+            {
+                quiz.StelVraag(i);
+            }
+
+            int eindScore = quiz.Score();
+            Console.WriteLine("Je score is: " + eindScore + " van de 10");
         }
 
         static void Main()
